@@ -3,16 +3,16 @@
 
 /* CONSTANTES PRÉ-DEFINIDAS */
 
-/* PROTÓTIPOS DE FUNÇÕES */
+/* PROTOTIPOS DAS FUNÇÕES */
 
-/* VARIÁVEIS GLOBAIS */
+/* VARIAVEIS GLOBAIS */
 
 /* CONSTRUÇÃO DAS FUNÇÕES */
 
 /* CORPO DO PROGRAMA */
 int main()
 {	
-	printf("Hello world!");
+	printf("Hello World!");
 	getch();
 	return 0;
 }
