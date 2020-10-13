@@ -17,10 +17,10 @@ typedef struct
 
 student data[N] = 
 {
-	{"Evandro",82,72,58,0,{"Rua America","Orlando",3,23454}},
-	{"Thomas", 77,82,79},
-	{"Sabrina",52,62,39},
-	{"Melinda",61,82,88}
+	{"Evandro",82,72,58,0,{"Rua America","Orlando",222,43655}},
+	{"Thomas", 77,82,79,0,{"Rua Salvador","Braganca",11,565447}},
+	{"Sabrina",52,62,39,0,{"Rua DiMaria","Silvania",12,45367}},
+	{"Melinda",61,82,88,0,{"Rua das Cerejas","Tamandua",334,45465}}
 };
 
 void CalculaMedias()
