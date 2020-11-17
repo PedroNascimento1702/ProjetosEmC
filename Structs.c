@@ -1,45 +1,51 @@
+/*-------------------------------------------------------------- 
+# Programa: Exibir dados de uma struct
+# Autores: Vinicius Almeida Soares          
+		   Gabriel Novato Nascimento     
+           Pedro Henrique Nascimento   
+           Vitor  da Silva Gomes             
+# Descrição: Esse programa exibe os dados de uma struct usando sctruct dentro de struct
+ -------------------------------------------------------------*/
+
 #include <stdio.h>
-#define N 4
+#include <stdlib.h>
+#include "structs.h"
+#define TamanhoArray 4
 
-typedef struct
-{
-	char Rua[20],Cidade[20];
-	int Num, CEP;
-} endereco;
-
-typedef struct
-{
-	char name[20];
-	int eng, math, phys;
-	float media;
-	endereco end;
-} student;
-
-student data[N] = 
-{
+student Estudante[TamanhoArray] = {
 	{"Evandro",82,72,58,0,{"Rua America","Orlando",222,43655}},
 	{"Thomas", 77,82,79,0,{"Rua Salvador","Braganca",11,565447}},
 	{"Sabrina",52,62,39,0,{"Rua DiMaria","Silvania",12,45367}},
 	{"Melinda",61,82,88,0,{"Rua das Cerejas","Tamandua",334,45465}}
 };
 
-void CalculaMedias()
-{
-	int i;
-	for(i=0;i<N;i++)
-	{
-		data[i].media = (data[i].eng + data[i].math + data[i].phys) / 3;
+float MediaDoEstudante = 0.0;
+
+/*Funcao que calcula media das notas no registro Estudante*/
+void CalculaMedias(){
+	int Contador;
+	for(Contador=0;Contador<TamanhoArray;Contador++){
+		MediaDoEstudante = (Estudante[Contador].eng + Estudante[Contador].math + Estudante[Contador].phys) / 3;
+		Estudante[Contador].media = MediaDoEstudante;
 	}
 }
 
-int main()
-{	
-	CalculaMedias();
-	int i;
-	for(i=0;i<N;i++)
-	{
-		printf("%7s: Eng = %3d Math = %3d Phys = %3d -- Media = %.2f\n",data[i].name,data[i].eng,data[i].math,data[i].phys,data[i].media);
-		printf("Endereco: Rua = %s Numero = %i Cidade = %s  CEP = %i\n\n\n",data[i].end.Rua,data[i].end.Num,data[i].end.Cidade,data[i].end.CEP);
+int main(){	
+	char Repetir = 0;
+	while(Repetir != 78 && Repetir != 110){
+		CalculaMedias();
+		int Contador;
+		for(Contador=0;Contador<TamanhoArray;Contador++){
+			printf("%7s: Eng = %3d Math = %3d Phys = %3d -- Media = %.2f\n",
+				Estudante[Contador].name,Estudante[Contador].eng,Estudante[Contador].math,Estudante[Contador].phys,Estudante[Contador].media);
+			printf("Endereco: Rua = %s Numero = %i Cidade = %s  CEP = %i\n\n\n",
+				Estudante[Contador].end.Rua,Estudante[Contador].end.Num,Estudante[Contador].end.Cidade,Estudante[Contador].end.CEP);
+		}
+		
+		printf("Deseja calcular novamente? Digite N ou n para sair");
+		fflush(stdin); 
+		Repetir = getch();	
 	}
+	
 	return 0;
 }
